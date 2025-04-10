@@ -17,7 +17,7 @@ Este projeto implementa autenticação de usuários utilizando o **Firebase Auth
 - **React Router**
 - **CSS Global**
 
-## 🚀 Como rodar
+## Como rodar
 
 1. **Clone o repositório:**
 
