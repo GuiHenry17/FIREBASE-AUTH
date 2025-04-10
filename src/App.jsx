@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { auth } from './config/firebaseConfig.js';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { SignJWT } from 'jose';
-import { useNavigate } from 'react-router-dom';
-import styles from '../public/global.module.css';
+import { useNavigate, Link } from 'react-router-dom';
+import './global.css';
 
 export default function App() {
   const [email, setEmail] = useState('');
@@ -25,33 +25,40 @@ export default function App() {
       localStorage.setItem('token', token);
 
       alert('Logado com sucesso!');
-      navigate('/acessoadmin');
+      navigate('/admin');
     } catch (err) {
       alert('Erro ao autenticar: ', err);
     }
   };
 
   return (
-    <main>
-      <form onSubmit={authWithFirebase}>
-        <label htmlFor="email">E-mail:</label>
+    <main className='loginContainer'>
+      <form onSubmit={authWithFirebase} className="loginForm">
+        <label htmlFor="email" className="loginLabel">E-mail:</label>
         <input
           id="email"
           name="email"
           type="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
+          required
+          className="loginInput"  
         />
-        <label htmlFor="senha">Senha:</label>
+        <label htmlFor="senha" className="loginLabel">Senha:</label>
         <input
           id="senha"
           name="senha"
           type="password"
           value={senha}
           onChange={(event) => setSenha(event.target.value)}
+          required
+          className="loginInput"
         />
-        <button>AUTENTICAR</button>
+        <button className="loginButton">AUTENTICAR</button>
       </form>
+      <Link to='/registro'>
+        <p className="homeText">Não tenho uma conta</p>
+      </Link>
     </main>
   );
 }
