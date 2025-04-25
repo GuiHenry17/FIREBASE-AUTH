@@ -69,7 +69,7 @@ Acesse a aplicação em `http://localhost:5173`.
 
 - `/registrar`: página de cadastro
 - `/login`: página de login
-- `/`: área protegida (requer autenticação)
+- `/admin`: área protegida (requer autenticação)
 
 ## Estilo
 
